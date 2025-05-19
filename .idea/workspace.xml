@@ -6,6 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1050ee68-6d3b-4751-b4a3-8ef4e053cbbe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/criarTarefa.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/criarTarefa.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/index.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud/views/criarTarefa.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/views/criarTarefa.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +97,7 @@
       <workItem from="1747681268815" duration="1559000" />
       <workItem from="1747682832553" duration="1418000" />
       <workItem from="1747684314897" duration="610000" />
-      <workItem from="1747684958074" duration="8529000" />
+      <workItem from="1747684958074" duration="9878000" />
     </task>
     <servers />
   </component>

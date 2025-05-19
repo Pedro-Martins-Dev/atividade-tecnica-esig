@@ -12,9 +12,12 @@
     <h:body>
         <h1>Sistema de Gerenciamento de Tarefas</h1>
         <h:panelGrid columns="1" cellpadding="10">
-            <h:link outcome="listarTarefa.xhtml" value="Listar Tarefas" /><br/>
-            <h:link outcome="criarTarefa.xhtml" value="Criar Tarefa" /><br/>
-            <h:link outcome="editarTarefa.xhtml" value="Editar Tarefa" />
+            <!-- Link para listar tarefas -->
+            <h:button outcome="/views/listarTarefa?faces-redirect=true" value="Listar Tarefas" /><br/>
+            <!-- Botão para criar tarefa -->
+            <h:button outcome="/views/criarTarefa?faces-redirect=true" value="Criar Tarefa" /><br/>
+            <!-- Link para editar tarefa -->
+            <h:button outcome="/views/editarTarefa?faces-redirect=true" value="Editar Tarefa" />
         </h:panelGrid>
     </h:body>
 </f:view>
