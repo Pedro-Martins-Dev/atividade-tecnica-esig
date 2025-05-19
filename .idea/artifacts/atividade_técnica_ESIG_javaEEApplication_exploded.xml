@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="atividade técnica ESIG:javaEEApplication exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/atividade_técnica_ESIG_javaEEApplication_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="atividade técnica ESIG/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>

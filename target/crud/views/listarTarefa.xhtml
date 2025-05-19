@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <title>Listar Tarefas</title>
+    </h:head>
+    <h:body>
+        <h:form id="formListarTarefa">
+            <h2>Listagem de Tarefas</h2>
+            <h:dataTable value="#{tarefaBean.tarefas}" var="tarefa" border="1">
+                <h:column>
+                    <f:facet name="header">Título</f:facet>
+                    <h:outputText value="#{tarefa.titulo}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Descrição</f:facet>
+                    <h:outputText value="#{tarefa.descricao}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Prioridade</f:facet>
+                    <h:outputText value="#{tarefa.prioridade}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Status</f:facet>
+                    <h:outputText value="#{tarefa.status}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Ações</f:facet>
+                    <!-- Link para editar: seta a tarefa no bean e redireciona -->
+                    <h:commandLink value="Editar" action="#{tarefaBean.editar(tarefa)}" >
+                        <f:param name="id" value="#{tarefa.id}" />
+                    </h:commandLink>
+                    &nbsp;|&nbsp;
+                    <!-- Link para remover -->
+                    <h:commandLink value="Excluir" action="#{tarefaBean.remover(tarefa)}"
+                                   onclick="if (!confirm('Deseja excluir esta tarefa?')) return false;" />
+                </h:column>
+            </h:dataTable>
+            <br />
+            <h:link outcome="criarTarefa.xhtml" value="Criar Nova Tarefa" />
+        </h:form>
+    </h:body>
+</f:view>
+</html>
