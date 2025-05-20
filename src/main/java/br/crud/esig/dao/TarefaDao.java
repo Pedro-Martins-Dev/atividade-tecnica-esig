@@ -3,18 +3,18 @@ package br.crud.esig.dao;
 import br.crud.esig.model.Prioridades;
 import br.crud.esig.model.Status;
 import br.crud.esig.model.Tarefa;
+import br.crud.esig.model.Usuario;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
-
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class TarefaDao
-{
+public class TarefaDao {
+
     @PersistenceContext
     private EntityManager em;
 
@@ -35,9 +35,9 @@ public class TarefaDao
         }
     }
 
-    public List<Tarefa> listar()
-    {
-        return em.createQuery("SELECT t FROM Tarefa t ORDER BY t.dataCadastro DESC", Tarefa.class).getResultList();
+    public List<Tarefa> listar() {
+        return em.createQuery("SELECT t FROM Tarefa t ORDER BY t.dataCadastro DESC", Tarefa.class)
+                .getResultList();
     }
 
     public List<Tarefa> buscarPorFiltro(Status status, Prioridades prioridade) {
@@ -64,4 +64,11 @@ public class TarefaDao
         return query.getResultList();
     }
 
+    // Novo método para listar tarefas filtrando por usuário
+    public List<Tarefa> listarPorUsuario(Usuario usuario) {
+        String jpql = "SELECT t FROM Tarefa t WHERE t.usuarioResponsavel = :usuario ORDER BY t.dataCadastro DESC";
+        TypedQuery<Tarefa> query = em.createQuery(jpql, Tarefa.class);
+        query.setParameter("usuario", usuario);
+        return query.getResultList();
+    }
 }

@@ -12,6 +12,23 @@
     <h:body>
         <h:form id="formListarTarefa">
             <h2>Listagem de Tarefas</h2>
+
+            <!-- Filtro por Usuário -->
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel value="Filtrar por Usuário:" for="filtroUsuario" />
+                <h:selectOneMenu id="filtroUsuario" value="#{tarefaBean.filtroUsuario}">
+                    <f:selectItem itemLabel="-- Todos --" itemValue="#{null}" />
+                    <f:selectItems value="#{tarefaBean.usuarioList}" var="usr"
+                                   itemLabel="#{usr.nome}" itemValue="#{usr}" />
+                </h:selectOneMenu>
+            </h:panelGrid>
+            <br/>
+
+            <!-- Botões de Filtrar e Limpar Filtro -->
+            <h:commandButton value="Filtrar" action="#{tarefaBean.filtrarPorUsuario}" />
+            <h:commandButton value="Mostrar Todos" action="#{tarefaBean.carregarTodasTarefas}" immediate="true" />
+
+            <br/><br/>
             <h:dataTable value="#{tarefaBean.tarefas}" var="tarefa" border="1">
                 <h:column>
                     <f:facet name="header">Título</f:facet>
@@ -31,18 +48,18 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Ações</f:facet>
-                    <!-- Link para editar: seta a tarefa no bean e redireciona -->
-                    <h:commandLink value="Editar" action="#{tarefaBean.editar(tarefa)}" >
+                    <!-- Botões para editar/excluir tarefas -->
+                    <h:commandLink value="Editar" action="#{tarefaBean.editar(tarefa)}">
                         <f:param name="id" value="#{tarefa.id}" />
                     </h:commandLink>
                     &nbsp;|&nbsp;
-                    <!-- Link para remover -->
                     <h:commandLink value="Excluir" action="#{tarefaBean.remover(tarefa)}"
                                    onclick="if (!confirm('Deseja excluir esta tarefa?')) return false;" />
                 </h:column>
             </h:dataTable>
             <br />
-            <h:link outcome="criarTarefa.xhtml" value="Criar Nova Tarefa" />
+            <!-- Link para criar nova tarefa -->
+            <h:link outcome="/views/criarTarefa?faces-redirect=true" value="Criar Nova Tarefa" />
         </h:form>
     </h:body>
 </f:view>

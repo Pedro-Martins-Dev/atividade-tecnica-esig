@@ -18,22 +18,25 @@ public class Tarefa {
     @Column(length = 500)
     private String descricao;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(nullable = false)
     private Prioridades prioridade;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(nullable = false)
     private Status status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuarioResponsavel;
 
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false, name="data_cadastro")
     private LocalDate dataCadastro;
 
+    @Column(name="data_conclusao_prevista")
     private LocalDate dataConclusaoPrevista;
+
+    @Column(name="data_conclusao")
     private LocalDate dataConclusao;
 
     // Construtores
@@ -93,5 +96,12 @@ public class Tarefa {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @PrePersist
+    public void prePersist() {
+        if (dataCadastro == null) {
+            dataCadastro = LocalDate.now();
+        }
     }
 }

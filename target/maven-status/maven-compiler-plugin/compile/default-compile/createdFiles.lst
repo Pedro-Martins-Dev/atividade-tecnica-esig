@@ -1,6 +1,8 @@
 br\crud\esig\model\Tarefa.class
 br\crud\esig\model\Usuario.class
+br\crud\esig\dao\UsuarioDao.class
 br\crud\esig\model\Prioridades.class
 br\crud\esig\bean\TarefaBean.class
 br\crud\esig\dao\TarefaDao.class
+br\crud\esig\bean\UsuarioBean.class
 br\crud\esig\model\Status.class

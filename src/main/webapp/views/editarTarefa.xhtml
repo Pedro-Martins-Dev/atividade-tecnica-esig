@@ -30,8 +30,9 @@
                 </h:selectOneMenu>
             </h:panelGrid>
             <br />
+            <!-- Utiliza o método salvar para atualizar a tarefa -->
             <h:commandButton value="Atualizar" action="#{tarefaBean.salvar}" />
-            <h:link outcome="listarTarefa.xhtml" value="Voltar" />
+            <h:link outcome="/views/listarTarefa?faces-redirect=true" value="Voltar" />
         </h:form>
     </h:body>
 </f:view>

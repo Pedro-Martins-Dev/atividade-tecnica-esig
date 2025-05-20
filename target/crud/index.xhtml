@@ -7,18 +7,21 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h:head>
-        <title>Index - Sistema de Tarefas</title>
+        <title>Sistema de Tarefas</title>
+        <h:outputStylesheet library="css" name="style.css" />
     </h:head>
     <h:body>
-        <h1>Sistema de Gerenciamento de Tarefas</h1>
-        <h:panelGrid columns="1" cellpadding="10">
-            <!-- Link para listar tarefas -->
-            <h:button outcome="/views/listarTarefa?faces-redirect=true" value="Listar Tarefas" /><br/>
-            <!-- Botão para criar tarefa -->
-            <h:button outcome="/views/criarTarefa?faces-redirect=true" value="Criar Tarefa" /><br/>
-            <!-- Link para editar tarefa -->
-            <h:button outcome="/views/editarTarefa?faces-redirect=true" value="Editar Tarefa" />
-        </h:panelGrid>
+        <div class="container">
+            <h1>Sistema de Tarefas</h1>
+
+            <h:form>
+                <h:button outcome="/views/listarTarefa?faces-redirect=true" value="📋 Listar Tarefas" styleClass="btn" />
+                <h:button outcome="/views/criarTarefa?faces-redirect=true" value="➕ Cadastrar Tarefa" styleClass="btn" />
+                <h:button outcome="/views/editarTarefa?faces-redirect=true" value="✏️ Editar Tarefa" styleClass="btn" />
+                <!-- Botão para cadastro de usuários -->
+                <h:button outcome="/views/criarUsuario?faces-redirect=true" value="➕ Cadastrar Usuário" styleClass="btn" />
+            </h:form>
+        </div>
     </h:body>
 </f:view>
 </html>
