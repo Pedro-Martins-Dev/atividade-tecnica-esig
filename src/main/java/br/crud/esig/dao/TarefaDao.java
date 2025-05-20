@@ -4,13 +4,15 @@ import br.crud.esig.model.Prioridades;
 import br.crud.esig.model.Status;
 import br.crud.esig.model.Tarefa;
 import br.crud.esig.model.Usuario;
+import jdk.nashorn.internal.runtime.PropertyHashMap;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+
 import java.util.List;
-import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class TarefaDao {
@@ -28,10 +30,12 @@ public class TarefaDao {
     }
 
     @Transactional
-    public void remover(Tarefa tarefa) {
-        Tarefa tarefaGerenciada = em.find(Tarefa.class, tarefa.getId());
-        if (tarefaGerenciada != null) {
-            em.remove(tarefaGerenciada);
+    public void remover(Tarefa tarefa)
+    {
+        Tarefa t = em.find(Tarefa.class, tarefa.getId());
+        if (t != null) {
+            em.remove(t);
+            em.flush();
         }
     }
 
@@ -64,8 +68,12 @@ public class TarefaDao {
         return query.getResultList();
     }
 
-    // Novo método para listar tarefas filtrando por usuário
-    public List<Tarefa> listarPorUsuario(Usuario usuario) {
+    public List<Tarefa> listarPorUsuario(Usuario usuario)
+    {
+        if (usuario == null)
+        {
+            return listar();
+        }
         String jpql = "SELECT t FROM Tarefa t WHERE t.usuarioResponsavel = :usuario ORDER BY t.dataCadastro DESC";
         TypedQuery<Tarefa> query = em.createQuery(jpql, Tarefa.class);
         query.setParameter("usuario", usuario);

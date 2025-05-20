@@ -1,19 +1,19 @@
 package br.crud.esig.bean;
 
+import br.crud.esig.dao.TarefaDao;
 import br.crud.esig.dao.UsuarioDao;
 import br.crud.esig.model.Tarefa;
 import br.crud.esig.model.Prioridades;
 import br.crud.esig.model.Status;
 import br.crud.esig.model.Usuario;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.faces.view.ViewScoped;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+import org.omnifaces.cdi.ViewScoped;
 @Named
 @ViewScoped
 public class TarefaBean implements Serializable {
@@ -22,18 +22,18 @@ public class TarefaBean implements Serializable {
 
     private Tarefa tarefa;
     private List<Tarefa> tarefas;
+
     private Status filtroStatus;
     private Prioridades filtroPrioridade;
+    private Usuario filtroUsuario;
+
+    private List<Usuario> usuarios;
 
     @Inject
     private UsuarioDao usuarioDao;
 
-    private List<Usuario> usuarios;
-    private Usuario filtroUsuario;
-
     @Inject
-    private br.crud.esig.dao.TarefaDao tarefaDao;
-
+    private TarefaDao tarefaDao;
 
     @PostConstruct
     public void init() {
@@ -48,22 +48,11 @@ public class TarefaBean implements Serializable {
         tarefa = new Tarefa();
     }
 
-
-    public void editar(Tarefa tarefaSelecionada) {
+    public String editar(Tarefa tarefaSelecionada) {
         this.tarefa = tarefaSelecionada;
+        return "/views/editarTarefa.xhtml?faces-redirect=true";
     }
 
-    public void remover(Tarefa tarefaSelecionada) {
-        tarefaDao.remover(tarefaSelecionada);
-        tarefas = tarefaDao.listar();
-    }
-
-    public void filtrar() {
-        // Filtra tarefas com base nos filtros de status e prioridade
-        tarefas = tarefaDao.buscarPorFiltro(filtroStatus, filtroPrioridade);
-    }
-
-    // Método para filtrar por usuário
     public void filtrarPorUsuario() {
         if (filtroUsuario != null) {
             tarefas = tarefaDao.listarPorUsuario(filtroUsuario);
@@ -77,7 +66,11 @@ public class TarefaBean implements Serializable {
         filtroUsuario = null;
     }
 
-    // Getters e Setters
+    public String remover(Tarefa tarefaSelecionada) {
+        tarefaDao.remover(tarefaSelecionada);
+        tarefas = tarefaDao.listar();
+        return null;
+    }
 
     public Tarefa getTarefa() {
         return tarefa;
@@ -119,18 +112,7 @@ public class TarefaBean implements Serializable {
         this.filtroUsuario = filtroUsuario;
     }
 
-    // Método auxiliar para o select de Prioridades
-    public List<Prioridades> getPrioridadeList() {
-        return Arrays.asList(Prioridades.values());
-    }
-
-    // Método auxiliar para o select de Status
-    public List<Status> getStatusList() {
-        return Arrays.asList(Status.values());
-    }
-
-    // Método auxiliar para o select de Usuários
     public List<Usuario> getUsuarioList() {
-        return new ArrayList<>();
+        return usuarios;
     }
 }

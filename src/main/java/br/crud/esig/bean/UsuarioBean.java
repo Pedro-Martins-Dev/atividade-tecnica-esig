@@ -12,7 +12,8 @@ import java.util.List;
 
 @Named
 @ViewScoped
-public class UsuarioBean implements Serializable {
+public class UsuarioBean implements Serializable
+{
 
     private static final long serialVersionUID = 1L;
 
@@ -23,41 +24,47 @@ public class UsuarioBean implements Serializable {
     private UsuarioDao usuarioDao;
 
     @PostConstruct
-    public void init() {
+    public void init()
+    {
         usuario = new Usuario();
         usuarios = usuarioDao.listar();
     }
 
-    public void salvar() {
+    public void salvar()
+    {
         usuarioDao.salvar(usuario);
         usuarios = usuarioDao.listar();
         usuario = new Usuario();
     }
 
-    public void editar(Usuario usuarioSelecionado) {
+    public void editar(Usuario usuarioSelecionado)
+    {
         this.usuario = usuarioSelecionado;
     }
 
-    public void remover(Usuario usuarioSelecionado) {
+    public void remover(Usuario usuarioSelecionado)
+    {
         usuarioDao.remover(usuarioSelecionado);
         usuarios = usuarioDao.listar();
     }
 
-    // Getters e Setters
-
-    public Usuario getUsuario() {
+    public Usuario getUsuario()
+    {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(Usuario usuario)
+    {
         this.usuario = usuario;
     }
 
-    public List<Usuario> getUsuarios() {
+    public List<Usuario> getUsuarios()
+    {
         return usuarios;
     }
 
-    public void setUsuarios(List<Usuario> usuarios) {
+    public void setUsuarios(List<Usuario> usuarios)
+    {
         this.usuarios = usuarios;
     }
 }

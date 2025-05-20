@@ -3,33 +3,36 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
 <f:view>
     <h:head>
         <title>Listar Tarefas</title>
+        <h:outputStylesheet library="css" name="listarTarefas.css" />
     </h:head>
+
     <h:body>
         <h:form id="formListarTarefa">
             <h2>Listagem de Tarefas</h2>
 
-            <!-- Filtro por Usuário -->
             <h:panelGrid columns="2" cellpadding="5">
                 <h:outputLabel value="Filtrar por Usuário:" for="filtroUsuario" />
-                <h:selectOneMenu id="filtroUsuario" value="#{tarefaBean.filtroUsuario}">
-                    <f:selectItem itemLabel="-- Todos --" itemValue="#{null}" />
+                <h:selectOneMenu id="filtroUsuario" value="#{tarefaBean.filtrarPorUsuario()}">
+                    <f:selectItem itemLabel="-- Todos --" itemValue="0" />
                     <f:selectItems value="#{tarefaBean.usuarioList}" var="usr"
-                                   itemLabel="#{usr.nome}" itemValue="#{usr}" />
+                                   itemLabel="#{usr.nome}" itemValue="#{usr.id}" />
                 </h:selectOneMenu>
             </h:panelGrid>
-            <br/>
 
-            <!-- Botões de Filtrar e Limpar Filtro -->
-            <h:commandButton value="Filtrar" action="#{tarefaBean.filtrarPorUsuario}" />
-            <h:commandButton value="Mostrar Todos" action="#{tarefaBean.carregarTodasTarefas}" immediate="true" />
+            <div class="form-buttons">
+                <h:commandButton value="Filtrar" action="#{tarefaBean.filtrarPorUsuario}" />
+                <h:commandButton value="Mostrar Todos" action="#{tarefaBean.carregarTodasTarefas}" immediate="true" />
+            </div>
 
             <br/><br/>
-            <h:dataTable value="#{tarefaBean.tarefas}" var="tarefa" border="1">
+
+            <h:dataTable id="tabelaTarefas" value="#{tarefaBean.tarefas}" var="tarefa" border="1">
                 <h:column>
                     <f:facet name="header">Título</f:facet>
                     <h:outputText value="#{tarefa.titulo}" />
@@ -48,19 +51,27 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Ações</f:facet>
-                    <!-- Botões para editar/excluir tarefas -->
-                    <h:commandLink value="Editar" action="#{tarefaBean.editar(tarefa)}">
-                        <f:param name="id" value="#{tarefa.id}" />
-                    </h:commandLink>
-                    &nbsp;|&nbsp;
-                    <h:commandLink value="Excluir" action="#{tarefaBean.remover(tarefa)}"
-                                   onclick="if (!confirm('Deseja excluir esta tarefa?')) return false;" />
+                    <div class="actions">
+                        <h:commandLink value="Editar" action="#{tarefaBean.editar(tarefa)}" />
+                        &#160;|&#160;
+                        <h:commandLink value="Excluir" action="#{tarefaBean.remover(tarefa)}">
+                            <f:ajax execute="@this" render="tabelaTarefas"
+                                    onstart="return confirmarExclusao();" />
+                        </h:commandLink>
+                    </div>
                 </h:column>
             </h:dataTable>
+
             <br />
-            <!-- Link para criar nova tarefa -->
             <h:link outcome="/views/criarTarefa?faces-redirect=true" value="Criar Nova Tarefa" />
         </h:form>
+
+        <!-- JS de confirmação -->
+        <h:outputScript>
+            function confirmarExclusao() {
+                return confirm('Deseja excluir esta tarefa?');
+            }
+        </h:outputScript>
     </h:body>
 </f:view>
 </html>

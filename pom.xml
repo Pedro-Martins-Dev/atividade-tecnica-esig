@@ -58,15 +58,11 @@
             <scope>provided</scope>
         </dependency>
 
-
-        <!-- (Opcional) Jackson para JSON -->
-        <!--
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.17.2</version>
+            <groupId>org.omnifaces</groupId>
+            <artifactId>omnifaces</artifactId>
+            <version>3.14</version>
         </dependency>
-        -->
 
     </dependencies>
 
