@@ -4,7 +4,6 @@ import br.crud.esig.model.Prioridades;
 import br.crud.esig.model.Status;
 import br.crud.esig.model.Tarefa;
 import br.crud.esig.model.Usuario;
-import jdk.nashorn.internal.runtime.PropertyHashMap;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
