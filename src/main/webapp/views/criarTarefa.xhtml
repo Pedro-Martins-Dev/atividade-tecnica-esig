@@ -1,54 +1,70 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h:head>
         <title>Criar Tarefa</title>
-        <h:outputStylesheet library="css" name="style.css" />
+        <h:outputStylesheet library="css" name="criarTarefa.css" />
     </h:head>
     <h:body>
         <div class="container">
             <h:form id="formCriarTarefa">
-                <h2>Criar Tarefa</h2>
+                <h2 class="titulo">Criar Tarefa</h2>
 
-                <h:messages globalOnly="true" layout="table" style="color:red;" />
+                <h:messages showDetail="true" globalOnly="false" styleClass="error-messages" />
 
-                <h:panelGrid columns="2" cellpadding="8" style="width: 100%;">
-
-                    <!-- Campo Título -->
+                <div class="form-group">
                     <h:outputLabel for="titulo" value="Título:" />
-                    <h:inputText id="titulo" value="#{tarefaBean.tarefa.titulo}" required="true" requiredMessage="Título é obrigatório."
-                                 style="width: 100%;" />
+                    <h:inputText id="titulo" value="#{tarefaBean.tarefa.titulo}"
+                                 required="true" requiredMessage="Título é obrigatório."
+                                 styleClass="form-control" />
+                    <h:message for="titulo" styleClass="error-message" />
+                </div>
 
-                    <!-- Campo Descrição -->
+                <div class="form-group">
                     <h:outputLabel for="descricao" value="Descrição:" />
-                    <h:inputTextarea id="descricao" value="#{tarefaBean.tarefa.descricao}" rows="4" cols="30" style="width: 100%;" />
+                    <h:inputTextarea id="descricao" value="#{tarefaBean.tarefa.descricao}"
+                                     rows="4" cols="30" styleClass="form-control" />
+                </div>
 
-                    <!-- Campo Prioridade -->
+                <div class="form-group">
                     <h:outputLabel for="prioridade" value="Prioridade:" />
-                    <h:selectOneMenu id="prioridade" value="#{tarefaBean.tarefa.prioridade}" required="true" requiredMessage="Prioridade é obrigatória."
-                                     style="width: 100%;">
-                        <f:selectItem itemLabel="Selecione..." itemValue="" />
-                        <f:selectItems value="#{tarefaBean.prioridadeList}" var="p" itemLabel="#{p}" itemValue="#{p}" />
+                    <h:selectOneMenu id="prioridade" value="#{tarefaBean.tarefa.prioridade}"
+                                     required="true" requiredMessage="Prioridade é obrigatória."
+                                     styleClass="form-control">
+                        <f:selectItem itemLabel="Selecione..." itemValue="" noSelectionOption="true" />
+                        <f:selectItems value="#{tarefaBean.prioridadeList}" />
                     </h:selectOneMenu>
+                    <h:message for="prioridade" styleClass="error-message" />
+                </div>
 
-                    <!-- Campo Responsável -->
+                <div class="form-group">
                     <h:outputLabel for="usuario" value="Responsável:" />
-                    <h:selectOneMenu id="usuario" value="#{tarefaBean.tarefa.usuarioResponsavel}" required="true" requiredMessage="Responsável é obrigatório."
-                                     style="width: 100%;">
-                        <f:selectItem itemLabel="Selecione..." itemValue="" />
-                        <f:selectItems value="#{tarefaBean.usuarioList}" var="u" itemLabel="#{u.nome}" itemValue="#{u}" />
+                    <h:selectOneMenu id="usuario"
+                                     value="#{tarefaBean.tarefa.usuarioResponsavel}"
+                                     required="true"
+                                     requiredMessage="Responsável é obrigatório."
+                                     styleClass="form-control">
+                        <f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true" />
+                        <f:selectItems value="#{tarefaBean.usuarioList}"
+                                       var="u"
+                                       itemLabel="#{u.nome}"
+                                       itemValue="#{u}" />
+                        <f:converter converterId="usuarioConverter" />
                     </h:selectOneMenu>
-                </h:panelGrid>
+                    <h:message for="usuario" styleClass="error-message" />
+                </div>
 
-                <br />
+                <div class="form-buttons">
+                    <h:commandButton value="Salvar" action="#{tarefaBean.cadastrar}"
+                                     styleClass="btn btn-primary">
+                        <f:ajax execute="@form" render="@form" />
+                    </h:commandButton>
 
-                <h:commandButton value="Salvar" action="#{tarefaBean.salvar}" styleClass="btn" />
-
-                <h:link outcome="/views/listarTarefa?faces-redirect=true" value="Voltar" style="margin-left: 10px;" />
+                    <h:link outcome="/views/listarTarefa.xhtml?faces-redirect=true"
+                            value="Voltar" styleClass="btn btn-secondary" />
+                </div>
             </h:form>
         </div>
     </h:body>

@@ -73,6 +73,7 @@ public class Tarefa {
 
     public LocalDate getDataCadastro() { return dataCadastro; }
 
+    public void setDataCadastro(LocalDate dataCadastro) { this.dataCadastro = dataCadastro; }
     public LocalDate getDataConclusaoPrevista() { return dataConclusaoPrevista; }
     public void setDataConclusaoPrevista(LocalDate dataConclusaoPrevista) { this.dataConclusaoPrevista = dataConclusaoPrevista; }
 
