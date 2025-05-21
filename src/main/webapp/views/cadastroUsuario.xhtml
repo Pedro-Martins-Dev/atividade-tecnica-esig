@@ -1,45 +1,84 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"> <!-- Adicionei namespace do PrimeFaces para facilitar -->
 <f:view>
     <h:head>
-        <title>Cadastrar Usuário</title>
-        <h:outputStylesheet library="css" name="style.css" />
+        <title>Criar Tarefa</title>
+        <h:outputStylesheet library="css" name="criarTarefa.css" />
     </h:head>
     <h:body>
         <div class="container">
-            <h:form id="formCadastrarUsuario">
-                <h1>Cadastrar Usuário</h1>
+            <h:form id="formCriarTarefa">
+                <h2 class="titulo">Criar Tarefa</h2>
 
-                <!-- Mensagens de erro globais -->
-                <h:messages globalOnly="true" layout="list" style="color: red; margin-bottom: 15px;" />
+                <h:messages showDetail="true" globalOnly="false" styleClass="error-messages" />
 
-                <h:panelGrid columns="2" cellpadding="5" style="width:100%;">
+                <div class="form-group">
+                    <h:outputLabel for="titulo" value="Título:" />
+                    <h:inputText id="titulo" value="#{tarefaBean.tarefa.titulo}"
+                                 required="true" requiredMessage="Título é obrigatório."
+                                 styleClass="form-control" />
+                    <h:message for="titulo" styleClass="error-message" />
+                </div>
 
-                    <!-- Campo Nome -->
-                    <h:outputLabel for="nome" value="Nome:" style="font-weight:bold;" />
-                    <h:inputText id="nome" value="#{usuarioBean.usuario.nome}" required="true"
-                                 requiredMessage="O nome é obrigatório." style="width: 100%;" />
+                <div class="form-group">
+                    <h:outputLabel for="descricao" value="Descrição:" />
+                    <h:inputTextarea id="descricao" value="#{tarefaBean.tarefa.descricao}"
+                                     rows="4" cols="30" styleClass="form-control" />
+                </div>
 
-                    <!-- Você pode adicionar outros campos aqui, ex: e-mail, telefone, etc. -->
+                <div class="form-group">
+                    <h:outputLabel for="dataConclusao" value="Data Prevista para Conclusão:" />
+                    <!-- Usando PrimeFaces (recomendado) -->
+                    <p:calendar id="dataConclusao"
+                                value="#{tarefaBean.tarefa.dataConclusaoPrevista}"
+                                pattern="dd/MM/yyyy"
+                                required="true"
+                                requiredMessage="Data prevista é obrigatória."
+                                locale="pt_BR"
+                                styleClass="form-control" />
+                    <h:message for="dataConclusao" styleClass="error-message" />
+                </div>
 
-                </h:panelGrid>
+                <div class="form-group">
+                    <h:outputLabel for="prioridade" value="Prioridade:" />
+                    <h:selectOneMenu id="prioridade" value="#{tarefaBean.tarefa.prioridade}"
+                                     required="true" requiredMessage="Prioridade é obrigatória."
+                                     styleClass="form-control">
+                        <f:selectItem itemLabel="Selecione..." itemValue="" noSelectionOption="true" />
+                        <f:selectItems value="#{tarefaBean.prioridadeList}" />
+                    </h:selectOneMenu>
+                    <h:message for="prioridade" styleClass="error-message" />
+                </div>
 
-                <br />
+                <div class="form-group">
+                    <h:outputLabel for="usuario" value="Responsável:" />
+                    <h:selectOneMenu id="usuario"
+                                     value="#{tarefaBean.tarefa.usuarioResponsavel}"
+                                     required="true"
+                                     requiredMessage="Responsável é obrigatório."
+                                     styleClass="form-control">
+                        <f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true" />
+                        <f:selectItems value="#{tarefaBean.usuarioList}"
+                                       var="u"
+                                       itemLabel="#{u.nome}"
+                                       itemValue="#{u}" />
+                        <f:converter converterId="usuarioConverter" />
+                    </h:selectOneMenu>
+                    <h:message for="usuario" styleClass="error-message" />
+                </div>
 
-                <!-- Botões -->
-                <h:commandButton value="Salvar" action="#{usuarioBean.salvar}" styleClass="btn" />
-                <h:commandButton value="Limpar" type="reset" styleClass="btn" style="background-color:#6c757d; margin-left:10px;" />
+                <div class="form-buttons">
+                    <h:commandButton value="Salvar" action="#{tarefaBean.cadastrar}"
+                                     styleClass="btn btn-primary">
+                        <f:ajax execute="@form" render="@form" />
+                    </h:commandButton>
 
-                <br /><br />
-
-                <!-- Link para voltar -->
-                <h:link outcome="/views/listarUsuarios?faces-redirect=true" value="Voltar para lista de usuários"
-                        style="display: inline-block; margin-top: 20px; color: #007bff; text-decoration: underline; cursor: pointer;" />
-
+                    <h:link outcome="/views/listarTarefa.xhtml?faces-redirect=true"
+                            value="Voltar" styleClass="btn btn-secondary" />
+                </div>
             </h:form>
         </div>
     </h:body>

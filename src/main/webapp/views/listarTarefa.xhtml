@@ -27,8 +27,9 @@
 
             <!-- Botões de ação -->
             <div class="form-buttons">
-                <h:commandButton value="Filtrar" action="#{tarefaBean.filtrarPorUsuario}" />
-                <h:commandButton value="Mostrar Todos" action="#{tarefaBean.carregarTodasTarefas}" immediate="true" />
+                <h:commandButton value="Filtrar" action="#{tarefaBean.filtrarPorUsuario}">
+                    <f:ajax execute="@form" render="tabelaTarefas" />
+                </h:commandButton>
             </div>
 
             <br/><br/>

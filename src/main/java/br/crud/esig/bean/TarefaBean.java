@@ -7,6 +7,7 @@ import br.crud.esig.model.Tarefa;
 import br.crud.esig.model.Prioridades;
 import br.crud.esig.model.Status;
 import br.crud.esig.model.Usuario;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -123,15 +124,26 @@ public class TarefaBean implements Serializable {
 
     public void filtrar() {
         try {
-            if (filtroUsuario != null || filtroPrioridade != null || filtroStatus != null) {
-                tarefas = tarefaDao.buscarPorFiltro(filtroStatus, filtroPrioridade, filtroUsuario);
+            tarefas = tarefaDao.buscarPorFiltro(filtroStatus, filtroPrioridade, filtroUsuario);
+        } catch (Exception e) {
+            FacesUtil.addErrorMessage("Erro ao filtrar: " + e.getMessage());
+        }
+    }
+
+    public void filtrarPorUsuario() {
+        try {
+            if (filtroUsuario != null) {
+                // Se um usuário foi selecionado, filtra por ele
+                tarefas = tarefaDao.buscarPorUsuario(filtroUsuario);
+                FacesUtil.addInfoMessage("Filtrado por usuário: " + filtroUsuario.getNome());
             } else {
+                // Se "Todos" foi selecionado, mostra todas as tarefas
                 carregarTodasTarefas();
+                FacesUtil.addInfoMessage("Mostrando todas as tarefas");
             }
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                            "Erro ao filtrar tarefas: " + e.getMessage(), null));
+            FacesUtil.addErrorMessage("Erro ao filtrar: " + e.getMessage());
+            carregarTodasTarefas(); // Fallback em caso de erro
         }
     }
 

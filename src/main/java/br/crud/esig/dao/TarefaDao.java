@@ -187,4 +187,10 @@ public class TarefaDao {
             throw new RuntimeException("Falha ao contar tarefas por status: " + e.getMessage(), e);
         }
     }
+
+    public List<Tarefa> buscarPorUsuario(Usuario usuario) {
+        return em.createQuery("SELECT t FROM Tarefa t WHERE t.usuarioResponsavel = :usuario", Tarefa.class)
+                .setParameter("usuario", usuario)
+                .getResultList();
+    }
 }

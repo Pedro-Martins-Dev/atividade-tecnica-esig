@@ -46,6 +46,24 @@ body {
     box-sizing: border-box;
 }
 
+/* Estilo específico para o calendário */
+.ui-calendar {
+    width: 100%;
+    position: relative;
+}
+
+.ui-calendar .ui-inputfield {
+    width: 100% !important;
+    padding: 8px !important;
+}
+
+/* Remove a sobreposição do popup do calendário */
+.ui-datepicker {
+    position: absolute !important;
+    z-index: 1000 !important;
+    margin-top: 5px;
+}
+
 /* Estilo para os botões */
 .form-buttons {
     text-align: right;
@@ -87,4 +105,11 @@ body {
     margin-bottom: 15px;
     color: #d9534f;
     font-weight: bold;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
 }
