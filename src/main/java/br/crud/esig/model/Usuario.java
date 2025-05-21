@@ -21,7 +21,8 @@ public class Usuario implements Serializable {
 
     public Usuario() {}
 
-    public Usuario(String nome) {
+    public Usuario(String nome)
+    {
         this.nome = nome;
     }
 

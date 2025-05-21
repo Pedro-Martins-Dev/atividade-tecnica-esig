@@ -26,17 +26,113 @@ th {
     color: white;
 }
 
-.actions a {
-    margin-right: 8px;
-    color: #007bff;
-    text-decoration: none;
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
-.actions a:hover {
-    text-decoration: underline;
+/* Estilos para todos os botões de ação */
+.btn-editar,
+.btn-excluir,
+.btn-novo,
+.btn-voltar,
+.form-buttons .btn-primary,
+.form-buttons .btn-secondary {
+    color: white !important;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* Efeito de escala ao passar o mouse */
+.btn-editar:hover,
+.btn-excluir:hover,
+.btn-novo:hover,
+.btn-voltar:hover,
+.form-buttons .btn-primary:hover,
+.form-buttons .btn-secondary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Botão Editar */
+.btn-editar {
+    background-color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.btn-editar:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Botão Excluir */
+.btn-excluir {
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.btn-excluir:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Botão Novo */
+.btn-novo {
+    background-color: #17a2b8;
+    border: 1px solid #17a2b8;
+    margin-top: 20px;
+}
+
+.btn-novo:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+/* Botão Voltar - Estilo Roxo */
+.btn-voltar {
+    background-color: #6f42c1; /* Roxo mais vibrante */
+    border: 1px solid #6f42c1;
+    margin-top: 20px;
+}
+
+.btn-voltar:hover {
+    background-color: #5a32a3; /* Tom mais escuro de roxo */
+    border-color: #5a32a3;
 }
 
 .form-buttons {
     margin-top: 10px;
     margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.form-buttons .btn-primary {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.form-buttons .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.form-buttons .btn-secondary {
+    background-color: #6c757d;
+    border: 1px solid #6c757d;
+}
+
+.form-buttons .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Barra separadora entre botões */
+.actions .separator {
+    color: #6c757d;
 }

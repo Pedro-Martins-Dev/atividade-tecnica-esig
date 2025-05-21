@@ -1,0 +1,119 @@
+/* Estilos gerais da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* Título da página */
+.titulo-pagina {
+    font-size: 24px;
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Mensagens globais */
+.mensagens-globais {
+    color: #dc3545;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Estilos da tabela */
+.tabela-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.tabela-usuarios th, .tabela-usuarios td {
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+}
+
+.tabela-usuarios th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tabela-usuarios td {
+    text-align: center;
+}
+
+.cabecalho-tabela {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Estilização para as ações */
+.acoes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Estilos para botões */
+.btn-excluir {
+    background-color: #dc3545;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-excluir:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Botões de ação abaixo da tabela */
+.botoes-acao {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-novo, .btn-voltar {
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-novo {
+    background-color: #17a2b8;
+    border: none;
+}
+
+.btn-voltar {
+    background-color: #6f42c1;
+    border: none;
+}
+
+.btn-novo:hover {
+    background-color: #138496;
+}
+
+.btn-voltar:hover {
+    background-color: #5a32a3;
+}

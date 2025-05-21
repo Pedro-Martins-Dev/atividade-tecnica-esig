@@ -46,22 +46,38 @@ body {
     box-sizing: border-box;
 }
 
-/* Estilo específico para o calendário */
+/* Estilo específico para o calendário inline */
 .ui-calendar {
+    display: flex !important;
+    align-items: center;
+    gap: 5px;
     width: 100%;
-    position: relative;
 }
 
 .ui-calendar .ui-inputfield {
-    width: 100% !important;
-    padding: 8px !important;
+    flex: 1;
+    min-width: 0; /* Permite que o input diminua */
 }
 
-/* Remove a sobreposição do popup do calendário */
+.ui-calendar .ui-datepicker-trigger {
+    background: #820808;
+    border: 1px solid #ced4da;
+    padding: 8px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto;
+    height: 38px;
+}
+
+.ui-calendar .ui-datepicker-trigger:hover {
+    background: #600000;
+}
+
+/* Ajuste para o popup do calendário */
 .ui-datepicker {
     position: absolute !important;
     z-index: 1000 !important;
-    margin-top: 5px;
+    margin-top: 0px;
 }
 
 /* Estilo para os botões */
@@ -78,6 +94,15 @@ body {
     cursor: pointer;
     text-decoration: none;
     margin-left: 5px;
+}
+
+.btn-voltar {
+    background-color: #009063;
+    color: #ffffff;
+}
+
+.btn-voltar:hover {
+    background-color: #016a3f;
 }
 
 /* Botão principal (Salvar) */
