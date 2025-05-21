@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1050ee68-6d3b-4751-b4a3-8ef4e053cbbe" name="Changes" comment="agora da pra cadastrar tarefa e excluir tarefa">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/bean/TarefaBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/bean/TarefaBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/dao/TarefaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/dao/TarefaDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/criarTarefa.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/criarTarefa.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/cadastroUsuario.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/cadastroUsuario.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/criarTarefa.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/criarTarefa.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/listarTarefa.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/listarTarefa.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud/views/criarTarefa.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/views/criarTarefa.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +98,7 @@
       <workItem from="1747684958074" duration="15454000" />
       <workItem from="1747742024357" duration="18398000" />
       <workItem from="1747831897890" duration="47000" />
-      <workItem from="1747852763506" duration="1354000" />
+      <workItem from="1747852763506" duration="1718000" />
     </task>
     <task id="LOCAL-00001" summary="melhorei a tela de listar tarefas, falta só fazer o filtro funcionar">
       <option name="closed" value="true" />

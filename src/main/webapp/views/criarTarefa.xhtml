@@ -29,19 +29,20 @@
                                      rows="4" cols="30" styleClass="form-control" />
                 </div>
 
-                <h:outputLabel for="dataConclusao" value="Data Prevista para Conclusão:" />
-                <p:calendar id="dataConclusao"
-                            value="#{tarefaBean.tarefa.dataConclusaoPrevista}"
-                            pattern="dd/MM/yyyy"
-                            required="true"
-                            requiredMessage="Data prevista é obrigatória."
-                            locale="pt_BR"
-                            styleClass="form-control"
-                            showOn="button"
-                            navigator="true"
-                            yearRange="c-10:c+10"
-                            showButtonPanel="true" />
-                <h:message for="dataConclusao" styleClass="error-message" />
+                <div class="form-group">
+                    <h:outputLabel for="dataConclusao" value="Data Prevista para Conclusão:" />
+                    <p:calendar id="dataConclusao"
+                                value="#{tarefaBean.tarefa.dataConclusaoPrevista}"
+                                pattern="dd/MM/yyyy"
+                                required="true"
+                                requiredMessage="Data prevista é obrigatória."
+                                locale="pt_BR"
+                                showOn="button"
+                                navigator="true"
+                                yearRange="c-10:c+10"
+                                showButtonPanel="true" />
+                    <h:message for="dataConclusao" styleClass="error-message" />
+                </div>
 
                 <div class="form-group">
                     <h:outputLabel for="prioridade" value="Prioridade:" />
