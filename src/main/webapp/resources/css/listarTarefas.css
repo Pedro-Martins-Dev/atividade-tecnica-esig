@@ -32,11 +32,12 @@ th {
     align-items: center;
 }
 
-/* Estilos para todos os botões de ação */
+/* Estilo base para todos os botões */
 .btn-editar,
 .btn-excluir,
 .btn-novo,
 .btn-voltar,
+.btn-concluir,
 .form-buttons .btn-primary,
 .form-buttons .btn-secondary {
     color: white !important;
@@ -48,11 +49,12 @@ th {
     transition: all 0.3s ease;
 }
 
-/* Efeito de escala ao passar o mouse */
+/* Efeito hover para todos os botões */
 .btn-editar:hover,
 .btn-excluir:hover,
 .btn-novo:hover,
 .btn-voltar:hover,
+.btn-concluir:hover,
 .form-buttons .btn-primary:hover,
 .form-buttons .btn-secondary:hover {
     transform: scale(1.05);
@@ -61,13 +63,13 @@ th {
 
 /* Botão Editar */
 .btn-editar {
-    background-color: #28a745;
-    border: 1px solid #28a745;
+    background-color: rgba(42, 60, 224, 0.91);
+    border: 1px solid rgba(42, 60, 224, 0.91);
 }
 
 .btn-editar:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
+    background-color: #1834c7;
+    border-color: rgba(25, 37, 173, 0.91);
 }
 
 /* Botão Excluir */
@@ -93,18 +95,30 @@ th {
     border-color: #117a8b;
 }
 
-/* Botão Voltar - Estilo Roxo */
+/* Botão Voltar */
 .btn-voltar {
-    background-color: #6f42c1; /* Roxo mais vibrante */
+    background-color: #6f42c1;
     border: 1px solid #6f42c1;
     margin-top: 20px;
 }
 
 .btn-voltar:hover {
-    background-color: #5a32a3; /* Tom mais escuro de roxo */
+    background-color: #5a32a3;
     border-color: #5a32a3;
 }
 
+/* Botão Concluir */
+.btn-concluir {
+    background-color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.btn-concluir:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Botões de formulário */
 .form-buttons {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -132,12 +146,11 @@ th {
     border-color: #545b62;
 }
 
-/* Barra separadora entre botões */
 .actions .separator {
     color: #6c757d;
 }
 
-/* Container flexível para os filtros */
+/* Filtro */
 .filtro-container {
     display: flex;
     justify-content: center;
@@ -146,21 +159,18 @@ th {
     margin-bottom: 20px;
 }
 
-/* Estilo individual de cada campo de filtro */
 .filtro-item {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-/* Centraliza o botão de filtro */
 .filtro-botao {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
 }
 
-/* Botão Filtrar personalizado */
 .btn-filtrar {
     background-color: #007bff;
     border: 1px solid #007bff;
@@ -177,4 +187,19 @@ th {
     border-color: #004085;
     transform: scale(1.05);
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Adicione ao seu arquivo listarTarefas.css */
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+    text-decoration: none;
+}
+
+.btn-editar.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    text-decoration: none;
+    color: #2e8b0a;
 }

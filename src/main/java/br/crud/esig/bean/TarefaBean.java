@@ -193,7 +193,23 @@ public class TarefaBean implements Serializable {
         }
     }
 
-    // Getters e Setters
+    public void concluir(Tarefa tarefaSelecionada) {
+        try {
+            tarefaSelecionada.setStatus(Status.CONCLUIDA);
+            tarefaSelecionada.setDataConclusao(LocalDate.now());
+            tarefaDao.atualizar(tarefaSelecionada);
+            tarefas = tarefaDao.listar();
+
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_INFO,
+                            "Tarefa concluída com sucesso!", null));
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                            "Erro ao concluir tarefa: " + e.getMessage(), null));
+        }
+    }
+
     public Tarefa getTarefa() {
         return tarefa;
     }

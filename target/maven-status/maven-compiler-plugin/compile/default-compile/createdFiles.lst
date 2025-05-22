@@ -1,11 +1,12 @@
 br\crud\esig\model\Tarefa.class
-br\crud\esig\model\Usuario.class
 br\crud\esig\converter\UsuarioConverter.class
+br\crud\esig\converter\LocalDateConverter.class
 br\crud\esig\util\FacesUtil.class
-br\crud\esig\dao\UsuarioDao.class
-br\crud\esig\model\Prioridades.class
 br\crud\esig\bean\TarefaBean.class
 br\crud\esig\dao\TarefaDao.class
 br\crud\esig\exception\ValidacaoException.class
-br\crud\esig\bean\UsuarioBean.class
 br\crud\esig\model\Status.class
+br\crud\esig\model\Usuario.class
+br\crud\esig\dao\UsuarioDao.class
+br\crud\esig\model\Prioridades.class
+br\crud\esig\bean\UsuarioBean.class

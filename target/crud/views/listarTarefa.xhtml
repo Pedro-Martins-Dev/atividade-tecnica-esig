@@ -52,10 +52,6 @@
                     <f:ajax execute="filtroUsuario filtroStatus filtroPrioridade" render="tabelaTarefas" />
                 </h:commandButton>
             </div>
-
-
-
-            <!-- Botões de ação -->
             <div class="form-buttons">
                 <h:commandButton value="Filtrar" action="#{tarefaBean.filtrar}">
                     <f:ajax execute="filtroUsuario filtroStatus filtroPrioridade" render="tabelaTarefas" />
@@ -88,10 +84,33 @@
                     <h:outputText value="#{tarefa.usuarioResponsavel.nome}" />
                 </h:column>
                 <h:column>
+                    <f:facet name="header">Concluída em</f:facet>
+                    <h:outputText value="#{tarefa.dataConclusao}">
+                        <f:converter converterId="localDateConverter" />
+                    </h:outputText>
+                </h:column>
+                <h:column>
                     <f:facet name="header">Ações</f:facet>
                     <div class="actions">
-                        <h:commandLink styleClass="btn-editar" value="Editar" action="#{tarefaBean.editar(tarefa)}" />
-                        <h:commandLink styleClass="btn-excluir" value="Excluir" action="#{tarefaBean.remover(tarefa)}">
+                        <!-- Botão Editar - desativado quando concluído -->
+                        <h:commandLink styleClass="btn-editar #{tarefa.status eq 'CONCLUIDA' ? 'disabled' : ''}"
+                                       value="Editar"
+                                       action="#{tarefaBean.editar(tarefa)}"
+                                       disabled="#{tarefa.status eq 'CONCLUIDA'}" />
+
+                        <!-- Botão Concluir - aparece apenas se NÃO estiver concluído -->
+                        <h:commandLink styleClass="btn-concluir"
+                                       value="Concluir"
+                                       action="#{tarefaBean.concluir(tarefa)}"
+                                       rendered="#{tarefa.status ne 'CONCLUIDA'}">
+                            <f:ajax execute="@form" render="@form"
+                                    onstart="return confirm('Deseja marcar esta tarefa como concluída?');" />
+                        </h:commandLink>
+
+                        <!-- Botão Excluir - sempre visível -->
+                        <h:commandLink styleClass="btn-excluir"
+                                       value="Excluir"
+                                       action="#{tarefaBean.remover(tarefa)}">
                             <f:ajax execute="@form" render="@form"
                                     onstart="if(!confirm('Deseja realmente excluir esta tarefa?')) return false;" />
                         </h:commandLink>
