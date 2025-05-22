@@ -17,30 +17,29 @@
             <h:form id="formListarUsuarios">
                 <h2 class="titulo-pagina">Listagem de Usuários</h2>
 
-                <!-- Mensagens globais -->
+                <div class="botoes-acao">
+                    <h:link outcome="/views/cadastroUsuario.xhtml" value="Novo Usuário" styleClass="btn-novo" />
+                    <h:link outcome="/index.xhtml" value="Voltar para tela inicial" styleClass="btn-voltar" />
+                </div>
+
                 <h:messages globalOnly="true" styleClass="mensagens-globais" />
 
-                <!-- Tabela de usuários -->
                 <h:dataTable id="tabelaUsuarios" value="#{usuarioBean.usuarios}" var="usuario"
                              styleClass="tabela-usuarios" headerClass="cabecalho-tabela">
 
-                    <!-- Coluna ID -->
                     <h:column>
                         <f:facet name="header">ID</f:facet>
                         #{usuario.id}
                     </h:column>
 
-                    <!-- Coluna Nome -->
                     <h:column>
                         <f:facet name="header">Nome</f:facet>
                         #{usuario.nome}
                     </h:column>
 
-                    <!-- Coluna Ações -->
                     <h:column>
                         <f:facet name="header">Ações</f:facet>
                         <div class="acoes">
-                            <!-- Botão Excluir -->
                             <h:commandButton value="Excluir" action="#{usuarioBean.excluir(usuario.id)}"
                                              styleClass="btn-excluir"
                                              onclick="return confirm('Tem certeza que deseja excluir este usuário?');" />
@@ -48,11 +47,6 @@
                     </h:column>
                 </h:dataTable>
 
-                <!-- Botão para criar novo usuário -->
-                <div class="botoes-acao">
-                    <h:link outcome="/views/cadastroUsuario.xhtml" value="Novo Usuário" styleClass="btn-novo" />
-                    <h:link outcome="/index.xhtml" value="Voltar para tela inicial" styleClass="btn-voltar" />
-                </div>
             </h:form>
         </div>
 

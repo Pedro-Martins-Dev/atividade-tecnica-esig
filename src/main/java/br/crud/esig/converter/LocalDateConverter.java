@@ -3,13 +3,14 @@ package br.crud.esig.converter;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
+import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 @FacesConverter(value = "localDateConverter")
-public class LocalDateConverter implements Converter<LocalDate>
-{
+public class LocalDateConverter implements Converter<LocalDate> {
 
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -18,7 +19,12 @@ public class LocalDateConverter implements Converter<LocalDate>
         if (value == null || value.trim().isEmpty()) {
             return null;
         }
-        return LocalDate.parse(value, FORMATTER);
+
+        try {
+            return LocalDate.parse(value, FORMATTER);
+        } catch (DateTimeParseException e) {
+            throw new ConverterException("Data inválida. Use o formato DD/MM/AAAA", e);
+        }
     }
 
     @Override
@@ -26,6 +32,11 @@ public class LocalDateConverter implements Converter<LocalDate>
         if (value == null) {
             return "";
         }
-        return value.format(FORMATTER);
+
+        try {
+            return value.format(FORMATTER);
+        } catch (Exception e) {
+            throw new ConverterException("Erro ao formatar data", e);
+        }
     }
 }

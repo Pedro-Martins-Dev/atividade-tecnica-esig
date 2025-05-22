@@ -28,8 +28,32 @@ th {
 
 .actions {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+.actions .btn-editar,
+.actions .btn-excluir,
+.actions .btn-concluir {
+    color: white !important;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+    min-width: 80px; /* Garante tamanho consistente */
+    text-align: center;
+}
+
+/* Mantém todos os efeitos hover existentes */
+.actions .btn-editar:hover,
+.actions .btn-excluir:hover,
+.actions .btn-concluir:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 /* Estilo base para todos os botões */
@@ -146,10 +170,6 @@ th {
     border-color: #545b62;
 }
 
-.actions .separator {
-    color: #6c757d;
-}
-
 /* Filtro */
 .filtro-container {
     display: flex;
@@ -189,17 +209,44 @@ th {
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* Adicione ao seu arquivo listarTarefas.css */
-.disabled {
+/* Estilo para botões desabilitados */
+.btn-editar.disabled,
+.btn-concluir.disabled {
     opacity: 0.6;
     cursor: not-allowed;
     pointer-events: none;
     text-decoration: none;
+    color: #999;
 }
 
-.btn-editar.disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    text-decoration: none;
-    color: #2e8b0a;
+.mensagens-globais {
+    color: #dc3545;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #f5c6cb;
+    background-color: #f8d7da;
+    border-radius: 4px;
+    list-style: none;
+}
+
+.tabela-dados {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-dados th, .tabela-dados td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.cabecalho-tabela {
+    background-color: #007bff;
+    color: white;
+}
+
+.acoes {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }

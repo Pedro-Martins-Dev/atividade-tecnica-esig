@@ -176,6 +176,44 @@ public class TarefaDao {
     }
 
     @Transactional(TxType.SUPPORTS)
+    public List<Tarefa> buscarPorFiltro(Status status, Prioridades prioridade, Usuario usuario, String texto) {
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Tarefa> cq = cb.createQuery(Tarefa.class);
+            Root<Tarefa> root = cq.from(Tarefa.class);
+
+            List<Predicate> predicates = new ArrayList<>();
+
+            if (status != null) {
+                predicates.add(cb.equal(root.get("status"), status));
+            }
+            if (prioridade != null) {
+                predicates.add(cb.equal(root.get("prioridade"), prioridade));
+            }
+            if (usuario != null) {
+                predicates.add(cb.equal(root.get("usuarioResponsavel"), usuario));
+            }
+            if (texto != null && !texto.trim().isEmpty()) {
+                String likePattern = "%" + texto.toLowerCase() + "%";
+                predicates.add(
+                        cb.or(
+                                cb.like(cb.lower(root.get("titulo")), likePattern),
+                                cb.like(cb.lower(root.get("descricao")), likePattern)
+                        )
+                );
+            }
+
+            cq.where(predicates.toArray(new Predicate[0]));
+            cq.orderBy(cb.desc(root.get("dataCadastro")));
+
+            return em.createQuery(cq).getResultList();
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Erro ao filtrar tarefas", e);
+            throw new RuntimeException("Falha ao filtrar tarefas: " + e.getMessage(), e);
+        }
+    }
+
+    @Transactional(TxType.SUPPORTS)
     public long contarTarefasPorStatus(Status status) {
         try {
             return em.createQuery(

@@ -34,6 +34,7 @@ public class TarefaBean implements Serializable {
     private Usuario filtroUsuario;
     private List<Usuario> usuarios;
     private Long filtroUsuarioId;
+    private String filtroTexto;
 
     @Inject
     private UsuarioDao usuarioDao;
@@ -130,7 +131,7 @@ public class TarefaBean implements Serializable {
                 usuarioFiltro = usuarioDao.buscarPorId(filtroUsuarioId);
             }
 
-            tarefas = tarefaDao.buscarPorFiltro(filtroStatus, filtroPrioridade, usuarioFiltro);
+            tarefas = tarefaDao.buscarPorFiltro(filtroStatus, filtroPrioridade, usuarioFiltro, filtroTexto);
 
             if (tarefas == null || tarefas.isEmpty()) {
                 FacesUtil.addInfoMessage("Nenhuma tarefa encontrada com os filtros aplicados.");
@@ -139,11 +140,17 @@ public class TarefaBean implements Serializable {
             }
         } catch (Exception e) {
             FacesUtil.addErrorMessage("Erro ao filtrar: " + e.getMessage());
-            carregarTodasTarefas(); // Fallback
+            carregarTodasTarefas();
         }
     }
 
+    public String getFiltroTexto() {
+        return filtroTexto;
+    }
 
+    public void setFiltroTexto(String filtroTexto) {
+        this.filtroTexto = filtroTexto;
+    }
 
     public void filtrarPorUsuario() {
         try {
@@ -198,15 +205,13 @@ public class TarefaBean implements Serializable {
             tarefaSelecionada.setStatus(Status.CONCLUIDA);
             tarefaSelecionada.setDataConclusao(LocalDate.now());
             tarefaDao.atualizar(tarefaSelecionada);
+
             tarefas = tarefaDao.listar();
 
-            FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_INFO,
-                            "Tarefa concluída com sucesso!", null));
+            FacesUtil.addInfoMessage("Tarefa concluída com sucesso!");
+
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                            "Erro ao concluir tarefa: " + e.getMessage(), null));
+            FacesUtil.addErrorMessage("Erro ao concluir tarefa: " + e.getMessage());
         }
     }
 
