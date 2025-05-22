@@ -5,25 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1050ee68-6d3b-4751-b4a3-8ef4e053cbbe" name="Changes" comment="agora da pra cadastrar tarefa e excluir tarefa">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/cadastroUsuario.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/listarUsuarios.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/listarUsuarios.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/bean/TarefaBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/bean/TarefaBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/dao/TarefaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/dao/TarefaDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/criarTarefa.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/criarTarefa.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/listarTarefas.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/listarTarefas.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/cadastroUsuario.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/cadastroUsuario.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/criarTarefa.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/criarTarefa.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/listarTarefa.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/listarTarefa.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/crud/esig/model/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/crud/esig/model/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/crud/esig/bean/TarefaBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/crud/esig/bean/TarefaBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/crud/esig/dao/TarefaDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/crud/esig/dao/TarefaDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/crud.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/crud/WEB-INF/classes/br/crud/esig/model/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/WEB-INF/classes/br/crud/esig/model/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/crud/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/index.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/crud/resources/css/criarTarefa.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/resources/css/criarTarefa.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/crud/resources/css/listarTarefas.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/resources/css/listarTarefas.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/crud/views/cadastroUsuario.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/views/cadastroUsuario.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/crud/views/criarTarefa.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/views/criarTarefa.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud/WEB-INF/classes/br/crud/esig/bean/TarefaBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/WEB-INF/classes/br/crud/esig/bean/TarefaBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud/WEB-INF/classes/br/crud/esig/dao/TarefaDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/WEB-INF/classes/br/crud/esig/dao/TarefaDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/crud/views/listarTarefa.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/views/listarTarefa.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +107,7 @@
       <workItem from="1747742024357" duration="18398000" />
       <workItem from="1747831897890" duration="47000" />
       <workItem from="1747852763506" duration="6433000" />
-      <workItem from="1747859568377" duration="4926000" />
+      <workItem from="1747859568377" duration="6379000" />
     </task>
     <task id="LOCAL-00001" summary="melhorei a tela de listar tarefas, falta só fazer o filtro funcionar">
       <option name="closed" value="true" />

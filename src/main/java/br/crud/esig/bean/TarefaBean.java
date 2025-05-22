@@ -33,6 +33,7 @@ public class TarefaBean implements Serializable {
     private Prioridades filtroPrioridade;
     private Usuario filtroUsuario;
     private List<Usuario> usuarios;
+    private Long filtroUsuarioId;
 
     @Inject
     private UsuarioDao usuarioDao;
@@ -124,28 +125,41 @@ public class TarefaBean implements Serializable {
 
     public void filtrar() {
         try {
-            tarefas = tarefaDao.buscarPorFiltro(filtroStatus, filtroPrioridade, filtroUsuario);
+            Usuario usuarioFiltro = null;
+            if (filtroUsuarioId != null) {
+                usuarioFiltro = usuarioDao.buscarPorId(filtroUsuarioId);
+            }
+
+            tarefas = tarefaDao.buscarPorFiltro(filtroStatus, filtroPrioridade, usuarioFiltro);
+
+            if (tarefas == null || tarefas.isEmpty()) {
+                FacesUtil.addInfoMessage("Nenhuma tarefa encontrada com os filtros aplicados.");
+            } else {
+                FacesUtil.addInfoMessage("Tarefas filtradas com sucesso.");
+            }
         } catch (Exception e) {
             FacesUtil.addErrorMessage("Erro ao filtrar: " + e.getMessage());
+            carregarTodasTarefas(); // Fallback
         }
     }
+
+
 
     public void filtrarPorUsuario() {
         try {
             if (filtroUsuario != null) {
-                // Se um usuário foi selecionado, filtra por ele
                 tarefas = tarefaDao.buscarPorUsuario(filtroUsuario);
                 FacesUtil.addInfoMessage("Filtrado por usuário: " + filtroUsuario.getNome());
             } else {
-                // Se "Todos" foi selecionado, mostra todas as tarefas
                 carregarTodasTarefas();
                 FacesUtil.addInfoMessage("Mostrando todas as tarefas");
             }
         } catch (Exception e) {
             FacesUtil.addErrorMessage("Erro ao filtrar: " + e.getMessage());
-            carregarTodasTarefas(); // Fallback em caso de erro
+            carregarTodasTarefas();
         }
     }
+
 
     public void carregarTodasTarefas() {
         try {
@@ -226,5 +240,13 @@ public class TarefaBean implements Serializable {
 
     public List<Status> getStatusList() {
         return Arrays.asList(Status.values());
+    }
+
+    public Long getFiltroUsuarioId() {
+        return filtroUsuarioId;
+    }
+
+    public void setFiltroUsuarioId(Long filtroUsuarioId) {
+        this.filtroUsuarioId = filtroUsuarioId;
     }
 }

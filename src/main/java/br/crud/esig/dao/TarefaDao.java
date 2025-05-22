@@ -189,8 +189,11 @@ public class TarefaDao {
     }
 
     public List<Tarefa> buscarPorUsuario(Usuario usuario) {
-        return em.createQuery("SELECT t FROM Tarefa t WHERE t.usuarioResponsavel = :usuario", Tarefa.class)
+        String jpql = "SELECT t FROM Tarefa t WHERE t.usuarioResponsavel = :usuario";
+        return em.createQuery(jpql, Tarefa.class)
                 .setParameter("usuario", usuario)
                 .getResultList();
     }
+
+
 }

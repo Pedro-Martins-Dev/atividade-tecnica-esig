@@ -15,20 +15,51 @@
         <h:form id="formListarTarefa">
             <h2>Listagem de Tarefas</h2>
 
-            <!-- Filtro por Usuário -->
-            <h:panelGrid columns="2" cellpadding="5">
-                <h:outputLabel value="Filtrar por Usuário:" for="filtroUsuario" />
-                <h:selectOneMenu id="filtroUsuario" value="#{tarefaBean.filtroUsuario}">
-                    <f:selectItem itemLabel="-- Todos --" itemValue="#{null}" />
-                    <f:selectItems value="#{tarefaBean.usuarioList}" var="usr"
-                                   itemLabel="#{usr.nome}" itemValue="#{usr}" />
-                </h:selectOneMenu>
-            </h:panelGrid>
+            <!-- Filtro por Usuário, Status e Prioridade -->
+            <!-- Filtros de Usuário, Status e Prioridade -->
+            <div class="filtro-container">
+                <div class="filtro-item">
+                    <h:outputLabel value="Usuário:" for="filtroUsuario" />
+                    <h:selectOneMenu id="filtroUsuario" value="#{tarefaBean.filtroUsuarioId}">
+                        <f:selectItem itemLabel="-- Todos --" itemValue="#{null}" />
+                        <f:selectItems value="#{tarefaBean.usuarioList}" var="usr"
+                                       itemLabel="#{usr.nome}" itemValue="#{usr.id}" />
+                    </h:selectOneMenu>
+                </div>
+
+                <div class="filtro-item">
+                    <h:outputLabel value="Status:" for="filtroStatus" />
+                    <h:selectOneMenu id="filtroStatus" value="#{tarefaBean.filtroStatus}">
+                        <f:selectItem itemLabel="-- Todos --" itemValue="#{null}" />
+                        <f:selectItems value="#{tarefaBean.statusList}" var="sts"
+                                       itemLabel="#{sts}" itemValue="#{sts}" />
+                    </h:selectOneMenu>
+                </div>
+
+                <div class="filtro-item">
+                    <h:outputLabel value="Prioridade:" for="filtroPrioridade" />
+                    <h:selectOneMenu id="filtroPrioridade" value="#{tarefaBean.filtroPrioridade}">
+                        <f:selectItem itemLabel="-- Todas --" itemValue="#{null}" />
+                        <f:selectItems value="#{tarefaBean.prioridadeList}" var="pri"
+                                       itemLabel="#{pri}" itemValue="#{pri}" />
+                    </h:selectOneMenu>
+                </div>
+            </div>
+
+            <!-- Botão Filtrar Centralizado -->
+            <div class="filtro-botao">
+                <h:commandButton value="Filtrar" action="#{tarefaBean.filtrar}" styleClass="btn-filtrar">
+                    <f:ajax execute="filtroUsuario filtroStatus filtroPrioridade" render="tabelaTarefas" />
+                </h:commandButton>
+            </div>
+
+
 
             <!-- Botões de ação -->
             <div class="form-buttons">
-                <h:commandButton value="Filtrar" action="#{tarefaBean.filtrarPorUsuario}">
-                    <f:ajax execute="@form" render="tabelaTarefas" />
+                <h:commandButton value="Filtrar" action="#{tarefaBean.filtrar}">
+                    <f:ajax execute="filtroUsuario filtroStatus filtroPrioridade" render="tabelaTarefas" />
+
                 </h:commandButton>
             </div>
 

@@ -36,19 +36,19 @@ public class Usuario implements Serializable {
     public List<Tarefa> getTarefas() { return tarefas; }
     public void setTarefas(List<Tarefa> tarefas) { this.tarefas = tarefas; }
 
-    // equals e hashCode recomendados para entidades
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Usuario)) return false;
-        Usuario usuario = (Usuario) o;
-        return Objects.equals(id, usuario.id);
+        Usuario that = (Usuario) o;
+        return this.id != null && this.id.equals(that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return id != null ? id.hashCode() : 0;
     }
+
 
     // toString opcional (ajuda na depuração e logs)
     @Override

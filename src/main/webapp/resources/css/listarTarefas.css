@@ -136,3 +136,45 @@ th {
 .actions .separator {
     color: #6c757d;
 }
+
+/* Container flexível para os filtros */
+.filtro-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+/* Estilo individual de cada campo de filtro */
+.filtro-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Centraliza o botão de filtro */
+.filtro-botao {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* Botão Filtrar personalizado */
+.btn-filtrar {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    color: white;
+    font-weight: bold;
+    padding: 10px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-filtrar:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
