@@ -4,17 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1050ee68-6d3b-4751-b4a3-8ef4e053cbbe" name="Changes" comment="agora da pra cadastrar tarefa e excluir tarefa">
+    <list default="true" id="1050ee68-6d3b-4751-b4a3-8ef4e053cbbe" name="Changes" comment="projeot final">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/bean/TarefaBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/bean/TarefaBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/converter/LocalDateConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/converter/LocalDateConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/converter/UsuarioConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/converter/UsuarioConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/dao/TarefaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/dao/TarefaDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/listarTarefas.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/listarTarefas.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/listarUsuarios.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/listarUsuarios.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/listarTarefa.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/listarTarefa.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/listarUsuarios.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/listarUsuarios.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/crud/esig/bean/TarefaBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/crud/esig/bean/TarefaBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/crud.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/dao/UsuarioDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/dao/UsuarioDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/exception/ValidacaoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/exception/ValidacaoException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/model/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/model/Tarefa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/model/Tarefa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/model/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/crud/esig/util/FacesUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/crud/esig/util/FacesUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/crud/esig/converter/LocalDateConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/crud/esig/converter/LocalDateConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/crud/esig/dao/TarefaDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/crud/esig/dao/TarefaDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud/WEB-INF/classes/br/crud/esig/bean/TarefaBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/WEB-INF/classes/br/crud/esig/bean/TarefaBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud/WEB-INF/classes/br/crud/esig/converter/LocalDateConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/WEB-INF/classes/br/crud/esig/converter/LocalDateConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud/WEB-INF/classes/br/crud/esig/dao/TarefaDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/WEB-INF/classes/br/crud/esig/dao/TarefaDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud/resources/css/listarTarefas.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/resources/css/listarTarefas.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud/resources/css/listarUsuarios.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/resources/css/listarUsuarios.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud/views/listarTarefa.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/views/listarTarefa.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/crud/views/listarUsuarios.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/crud/views/listarUsuarios.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +119,7 @@
       <workItem from="1747852763506" duration="6433000" />
       <workItem from="1747859568377" duration="9560000" />
       <workItem from="1747927685898" duration="152000" />
-      <workItem from="1747949674790" duration="5706000" />
+      <workItem from="1747949674790" duration="9422000" />
     </task>
     <task id="LOCAL-00001" summary="melhorei a tela de listar tarefas, falta só fazer o filtro funcionar">
       <option name="closed" value="true" />
@@ -134,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747789079921</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="projeot final">
+      <option name="closed" value="true" />
+      <created>1747957409016</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747957409016</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,7 +173,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="melhorei a tela de listar tarefas, falta só fazer o filtro funcionar" />
     <MESSAGE value="agora da pra cadastrar tarefa e excluir tarefa" />
-    <option name="LAST_COMMIT_MESSAGE" value="agora da pra cadastrar tarefa e excluir tarefa" />
+    <MESSAGE value="projeot final" />
+    <option name="LAST_COMMIT_MESSAGE" value="projeot final" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

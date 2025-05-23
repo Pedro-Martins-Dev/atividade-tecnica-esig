@@ -10,32 +10,43 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 @FacesConverter(value = "localDateConverter")
-public class LocalDateConverter implements Converter<LocalDate> {
+public class LocalDateConverter implements Converter<LocalDate>
+{
 
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     @Override
-    public LocalDate getAsObject(FacesContext context, UIComponent component, String value) {
-        if (value == null || value.trim().isEmpty()) {
+    public LocalDate getAsObject(FacesContext context, UIComponent component, String value)
+    {
+        if (value == null || value.trim().isEmpty())
+        {
             return null;
         }
 
-        try {
+        try
+        {
             return LocalDate.parse(value, FORMATTER);
-        } catch (DateTimeParseException e) {
+        }
+        catch (DateTimeParseException e)
+        {
             throw new ConverterException("Data inválida. Use o formato DD/MM/AAAA", e);
         }
     }
 
     @Override
-    public String getAsString(FacesContext context, UIComponent component, LocalDate value) {
-        if (value == null) {
+    public String getAsString(FacesContext context, UIComponent component, LocalDate value)
+    {
+        if (value == null)
+        {
             return "";
         }
 
-        try {
+        try
+        {
             return value.format(FORMATTER);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             throw new ConverterException("Erro ao formatar data", e);
         }
     }

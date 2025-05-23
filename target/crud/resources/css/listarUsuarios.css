@@ -59,11 +59,10 @@ body {
     font-weight: bold;
 }
 
-/* Estilização para as ações */
 .acoes {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 /* Estilos para botões */
@@ -86,7 +85,7 @@ body {
 /* Botões de ação abaixo da tabela */
 .botoes-acao {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 15px;
     margin-top: 20px;
 }
@@ -116,4 +115,16 @@ body {
 
 .btn-voltar:hover {
     background-color: #5a32a3;
+}
+
+.filtro-texto {
+    flex: 2; /* Ocupa mais espaço que os outros filtros */
+    min-width: 300px;
+}
+
+.filtro-texto input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }

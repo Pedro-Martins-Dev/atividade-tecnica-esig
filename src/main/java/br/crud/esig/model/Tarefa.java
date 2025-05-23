@@ -39,10 +39,11 @@ public class Tarefa {
     @Column(name="data_conclusao")
     private LocalDate dataConclusao;
 
-    // Construtores
+    //fiz isso pro construtor padrão do JPA
     public Tarefa() {}
 
-    public Tarefa(String titulo, String descricao, Prioridades prioridade, Usuario usuarioResponsavel, LocalDate dataConclusaoPrevista) {
+    public Tarefa(String titulo, String descricao, Prioridades prioridade, Usuario usuarioResponsavel, LocalDate dataConclusaoPrevista)
+    {
         this.titulo = titulo;
         this.descricao = descricao;
         this.prioridade = prioridade;
@@ -52,7 +53,6 @@ public class Tarefa {
         this.dataConclusaoPrevista = dataConclusaoPrevista;
     }
 
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -82,26 +82,32 @@ public class Tarefa {
 
     // Métodos utilitários
     @Override
-    public String toString() {
+    public String toString()
+    {
         return String.format("Tarefa {id=%d, titulo='%s', status=%s, prioridade=%s}", id, titulo, status, prioridade);
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj)
+    {
         if (this == obj) return true;
+
         if (!(obj instanceof Tarefa)) return false;
         Tarefa tarefa = (Tarefa) obj;
         return Objects.equals(id, tarefa.id);
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return Objects.hash(id);
     }
 
     @PrePersist
-    public void prePersist() {
-        if (dataCadastro == null) {
+    public void prePersist()
+    {
+        if (dataCadastro == null)
+        {
             dataCadastro = LocalDate.now();
         }
     }

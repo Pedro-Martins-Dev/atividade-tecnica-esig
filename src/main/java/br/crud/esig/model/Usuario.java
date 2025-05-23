@@ -7,7 +7,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuario implements Serializable {
+public class Usuario implements Serializable
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +27,6 @@ public class Usuario implements Serializable {
         this.nome = nome;
     }
 
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -37,7 +37,8 @@ public class Usuario implements Serializable {
     public void setTarefas(List<Tarefa> tarefas) { this.tarefas = tarefas; }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (!(o instanceof Usuario)) return false;
         Usuario that = (Usuario) o;
@@ -45,12 +46,11 @@ public class Usuario implements Serializable {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         return id != null ? id.hashCode() : 0;
     }
 
-
-    // toString opcional (ajuda na depuração e logs)
     @Override
     public String toString() {
         return nome;

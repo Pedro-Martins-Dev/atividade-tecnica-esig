@@ -9,11 +9,14 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 @FacesConverter(forClass = Usuario.class, value = "usuarioConverter")
-public class UsuarioConverter implements Converter<Usuario> {
+public class UsuarioConverter implements Converter<Usuario>
+{
 
     @Override
-    public Usuario getAsObject(FacesContext context, UIComponent component, String value) {
-        if (value == null || value.isEmpty()) {
+    public Usuario getAsObject(FacesContext context, UIComponent component, String value)
+    {
+        if (value == null || value.isEmpty())
+        {
             return null;
         }
 
@@ -22,8 +25,10 @@ public class UsuarioConverter implements Converter<Usuario> {
     }
 
     @Override
-    public String getAsString(FacesContext context, UIComponent component, Usuario value) {
-        if (value == null || value.getId() == null) {
+    public String getAsString(FacesContext context, UIComponent component, Usuario value)
+    {
+        if (value == null || value.getId() == null)
+        {
             return "";
         }
         return value.getId().toString();
